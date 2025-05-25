@@ -1,0 +1,6 @@
+[tools]
+python = "3.10"
+
+[env]
+# auto create and activate virtual environment
+_.python.venv = { path = '.venv', create = true }

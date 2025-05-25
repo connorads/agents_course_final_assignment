@@ -13,3 +13,13 @@ hf_oauth_expiration_minutes: 480
 ---
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+
+## Local Setup
+
+```sh
+# Install dependencies
+uv pip sync requirements.lock
+
+# Update lock
+uv pip compile requirements.txt -o requirements.lock
+```
