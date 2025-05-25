@@ -4,3 +4,4 @@ requests
 pydantic-ai
 pydantic-ai-slim[duckduckgo]
 pydantic-ai[logfire]
+youtube-transcript-api

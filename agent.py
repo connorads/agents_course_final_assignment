@@ -1,7 +1,7 @@
 import logfire
 
 from pydantic_ai import Agent
-from tools.safe_duck import safe_duckduckgo_search_tool
+from tools import safe_duckduckgo_search_tool, get_youtube_transcript
 logfire.configure()  
 logfire.instrument_pydantic_ai()
 
@@ -9,7 +9,7 @@ class BasicAgent:
     def __init__(self):
         self.agent = Agent(
             "openai:o3-mini",
-            tools=[safe_duckduckgo_search_tool()],
+            tools=[safe_duckduckgo_search_tool(), get_youtube_transcript],
             system_prompt="Search DuckDuckGo for the given query and return the results.",
         )
 
