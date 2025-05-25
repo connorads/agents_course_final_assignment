@@ -41,6 +41,7 @@ charset-normalizer==3.4.2
     # via requests
 click==8.1.8
     # via
+    #   duckduckgo-search
     #   typer
     #   uvicorn
 cohere==5.15.0
@@ -50,12 +51,17 @@ colorama==0.4.6
 cryptography==45.0.2
     # via authlib
 deprecated==1.2.18
-    # via opentelemetry-api
+    # via
+    #   opentelemetry-api
+    #   opentelemetry-exporter-otlp-proto-http
+    #   opentelemetry-semantic-conventions
 distro==1.9.0
     # via
     #   anthropic
     #   groq
     #   openai
+duckduckgo-search==8.0.2
+    # via pydantic-ai-slim
 eval-type-backport==0.2.2
     # via
     #   mistralai
@@ -65,6 +71,8 @@ exceptiongroup==1.3.0
     # via
     #   anyio
     #   pydantic-ai-slim
+executing==2.2.0
+    # via logfire
 fasta2a==0.2.7
     # via pydantic-ai-slim
 fastapi==0.115.12
@@ -85,6 +93,8 @@ google-auth==2.40.2
     #   pydantic-ai-slim
 google-genai==1.16.1
     # via pydantic-ai-slim
+googleapis-common-protos==1.70.0
+    # via opentelemetry-exporter-otlp-proto-http
 gradio==5.31.0
     # via -r requirements.txt
 gradio-client==1.10.1
@@ -145,10 +155,14 @@ jmespath==1.0.1
     # via
     #   boto3
     #   botocore
+logfire==3.16.0
+    # via pydantic-ai
 logfire-api==3.16.0
     # via
     #   pydantic-evals
     #   pydantic-graph
+lxml==5.4.0
+    # via duckduckgo-search
 markdown-it-py==3.0.0
     # via rich
 markupsafe==3.0.2
@@ -170,7 +184,29 @@ openai==1.82.0
 opentelemetry-api==1.33.1
     # via
     #   fasta2a
+    #   opentelemetry-exporter-otlp-proto-http
+    #   opentelemetry-instrumentation
+    #   opentelemetry-sdk
+    #   opentelemetry-semantic-conventions
     #   pydantic-ai-slim
+opentelemetry-exporter-otlp-proto-common==1.33.1
+    # via opentelemetry-exporter-otlp-proto-http
+opentelemetry-exporter-otlp-proto-http==1.33.1
+    # via logfire
+opentelemetry-instrumentation==0.54b1
+    # via logfire
+opentelemetry-proto==1.33.1
+    # via
+    #   opentelemetry-exporter-otlp-proto-common
+    #   opentelemetry-exporter-otlp-proto-http
+opentelemetry-sdk==1.33.1
+    # via
+    #   logfire
+    #   opentelemetry-exporter-otlp-proto-http
+opentelemetry-semantic-conventions==0.54b1
+    # via
+    #   opentelemetry-instrumentation
+    #   opentelemetry-sdk
 orjson==3.10.18
     # via gradio
 packaging==25.0
@@ -178,12 +214,20 @@ packaging==25.0
     #   gradio
     #   gradio-client
     #   huggingface-hub
+    #   opentelemetry-instrumentation
 pandas==2.2.3
     # via gradio
 pillow==11.2.1
     # via gradio
+primp==0.15.0
+    # via duckduckgo-search
 prompt-toolkit==3.0.51
     # via pydantic-ai-slim
+protobuf==5.29.4
+    # via
+    #   googleapis-common-protos
+    #   logfire
+    #   opentelemetry-proto
 pyasn1==0.6.1
     # via
     #   pyasn1-modules
@@ -212,6 +256,7 @@ pydantic-ai==0.2.7
     # via -r requirements.txt
 pydantic-ai-slim==0.2.7
     # via
+    #   -r requirements.txt
     #   pydantic-ai
     #   pydantic-evals
 pydantic-core==2.33.2
@@ -252,9 +297,11 @@ requests==2.32.3
     #   cohere
     #   google-genai
     #   huggingface-hub
+    #   opentelemetry-exporter-otlp-proto-http
     #   pydantic-ai-slim
 rich==14.0.0
     # via
+    #   logfire
     #   pydantic-ai-slim
     #   pydantic-evals
     #   typer
@@ -289,6 +336,8 @@ starlette==0.46.2
     #   sse-starlette
 tokenizers==0.21.1
     # via cohere
+tomli==2.2.1
+    # via logfire
 tomlkit==0.13.2
     # via gradio
 tqdm==4.67.1
@@ -311,7 +360,9 @@ typing-extensions==4.13.2
     #   gradio-client
     #   groq
     #   huggingface-hub
+    #   logfire
     #   openai
+    #   opentelemetry-sdk
     #   pydantic
     #   pydantic-core
     #   rich
@@ -343,6 +394,8 @@ websockets==15.0.1
     #   google-genai
     #   gradio-client
 wrapt==1.17.2
-    # via deprecated
+    # via
+    #   deprecated
+    #   opentelemetry-instrumentation
 zipp==3.21.0
     # via importlib-metadata
