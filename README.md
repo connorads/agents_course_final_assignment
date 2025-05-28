@@ -23,3 +23,7 @@ uv pip sync requirements.lock
 # Update lock
 uv pip compile requirements.txt -o requirements.lock
 ```
+
+## Acknowledgements
+
+Heavily inspired by https://huggingface.co/spaces/bstraehle/gaia
