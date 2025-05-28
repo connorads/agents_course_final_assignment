@@ -7,7 +7,7 @@ agent = BasicAgent()
 if len(sys.argv) > 1:
     question = sys.argv[1]
 else:
-    question = "What is the capital of France?"
+    question = "In the video https://www.youtube.com/watch?v=L1vXCYZAYYM, what is the highest number of bird species to be on camera simultaneously?"
 
 
 result = agent(question)
