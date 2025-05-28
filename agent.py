@@ -10,7 +10,7 @@ class BasicAgent:
         self.agent = Agent(
             "openai:o3-mini",
             tools=[safe_duckduckgo_search_tool(), get_youtube_transcript],
-            system_prompt="Search DuckDuckGo for the given query and return the results.",
+            system_prompt="You are a helpful assistant that can answer questions about the world.",
         )
 
     def __call__(self, question: str) -> str:
