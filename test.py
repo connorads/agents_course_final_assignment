@@ -1,7 +1,7 @@
 import sys
-from agent import BasicAgent
+from agent import GaiaAgent
 
-agent = BasicAgent()
+agent = GaiaAgent()
 
 # Get the question from command-line arguments
 if len(sys.argv) > 1:

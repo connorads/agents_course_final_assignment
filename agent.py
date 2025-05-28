@@ -60,7 +60,7 @@ def youtube_analysis_tool(question: str, url: str) -> str | None:
     except Exception as e:
         raise RuntimeError(f"Processing failed: {str(e)}") from e
 
-class BasicAgent:
+class GaiaAgent:
     def _generate_final_answer(self, question: str, answer: str) -> str:
         prompt = f"""
         **Question:** {question}
