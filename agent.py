@@ -33,11 +33,38 @@ def web_search_tool(question: str) -> str | None:
     except Exception as e:
         raise RuntimeError(f"Processing failed: {str(e)}") from e
 
+def youtube_analysis_tool(question: str, url: str) -> str | None:
+    """Given a question and YouTube URL, analyze the video to answer the question.
+
+        Args:
+            question (str): Question about a YouTube video
+            url (str): The YouTube URL
+            
+        Returns:
+            str: Answer to the question about the YouTube video
+            
+        Raises:
+            RuntimeError: If processing fails"""
+    try:
+        client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+
+        response = client.models.generate_content(
+            model="gemini-2.5-flash-preview-05-20",
+            contents=types.Content(
+                parts=[types.Part(file_data=types.FileData(file_uri=url)),
+                        types.Part(text=question)]
+            )
+        )
+
+        return response.text
+    except Exception as e:
+        raise RuntimeError(f"Processing failed: {str(e)}") from e
+
 class BasicAgent:
     def __init__(self):
         self.agent = Agent(
             "gemini-2.5-flash-preview-05-20",
-            tools=[web_search_tool],
+            tools=[web_search_tool, youtube_analysis_tool],
             system_prompt="You are a helpful assistant that can answer questions about the world.",
         )
 
